@@ -73,14 +73,14 @@ describe('feedback()', () => {
     //Ex 2:
     //To test that output only contains result value 'incorrect'
     //when the guessing is 100% incorrect
-    /*it('creates array with correct object parameter values when only incorrect letters', () => {
+    it('creates array with correct object parameter values when only incorrect letters', () => {
         const output = feedback('PEAR', 'KIWI');
 
         expect(output).toStrictEqual([
             {letter: 'K', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}, 
             {letter: 'W', result: 'incorrect'}, {letter: 'I', result: 'incorrect'} 
         ]);
-    });*/
+    });
 
     //Ex 3:
     //To test that output only contains uppercase letters when mixed input

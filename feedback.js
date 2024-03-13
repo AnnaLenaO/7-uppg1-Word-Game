@@ -11,6 +11,8 @@ export default function feedback(correct, guess) {
 
         if (correct.includes(guess[i])) {
             obj[key2] = "correct";
+        } else if (!correct.includes(guess[i])) {
+            obj[key2] = "incorrect";
         }
 
         feedback.push(obj);
