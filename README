@@ -1,0 +1,13 @@
+B7, 1: Tested Wordle-algoritm
+
+Create a solution & algoritm for two problems. 
+Practice TDD to implement the two algoritms.
+
+A. Check which letters in a guessed word that match the letters 
+of the correct word. Also check if the index of the letters matches.
+Output is an array with an object for each letter & status. 
+
+B. Pick a random selected word from a list. 
+Check if it has a specified length & if the letters exists more than
+once or not. 
+Output is the selected word or something optional if the word does not exists. 
