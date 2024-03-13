@@ -95,7 +95,7 @@ describe('feedback()', () => {
 
     //Ex 4:
     //To test correct output for a partly correct guessing 
-    /*it('creates array with correct object parameter values when all three values exists', () => {
+    it('creates array with correct object parameter values when all three values exists', () => {
         const output = feedback('Orange', 'orGans');
 
         expect(output).toStrictEqual([
@@ -103,6 +103,7 @@ describe('feedback()', () => {
             {letter: 'G', result: 'misplaced'}, {letter: 'A', result: 'misplaced'}, 
             {letter: 'N', result: 'misplaced'}, {letter: 'S', result: 'incorrect'}
         ]);
+    });
 
     //Ex 5:
     //To test correct output when several equal letters gives both 'correct'
