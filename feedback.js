@@ -1,3 +1,3 @@
-export default function feedback(str) {
-    return '';
+export default function feedback(correct, guess) {
+    return [];
 }
