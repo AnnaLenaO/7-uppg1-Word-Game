@@ -108,13 +108,13 @@ describe('feedback()', () => {
     //Ex 5:
     //To test correct output when several equal letters gives both 'correct'
     //& 'missplaced'.  
-    /*it('creates array with correct object parameter values when several equal letters', () => {
+    it('creates array with correct object parameter values when several equal letters', () => {
         const output = feedback('Papaya', 'bannaa');
 
         expect(output).toStrictEqual([
             {letter: 'B', result: 'incorrect'}, {letter: 'A', result: 'correct'}, 
-            {letter: 'N', result: 'incorrect'}, {letter: 'A', result: 'correct'}, 
-            {letter: 'N', result: 'missplaced'}, {letter: 'A', result: 'correct'}
+            {letter: 'N', result: 'incorrect'}, {letter: 'N', result: 'incorrect'}, 
+            {letter: 'A', result: 'misplaced'}, {letter: 'A', result: 'correct'}
         ]);
-    });*/
+    });
 });

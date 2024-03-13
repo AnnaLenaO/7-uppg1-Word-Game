@@ -13,7 +13,7 @@ export default function feedback(correctWord, guessWord) {
 
         if (!correct.includes(guess[i])) {
             obj[key2] = "incorrect";
-        } else if (correct.indexOf(guess[i]) === guess.indexOf(guess[i]) ) {
+        } else if (correct[i] === guess[i]) {
             obj[key2] = "correct";
         } else {
             obj[key2] = "misplaced";
