@@ -60,7 +60,7 @@ describe('feedback()', () => {
     //Ex 1:
     //To test that output only contains result value 'correct'
     //when the guessing is 100% correct
-    it('does nothing with one string & one empty string', () => {
+    it('creates array with correct object parameter values when only correct letters', () => {
         const output = feedback('FRUIT', 'FRUIT');
 
         expect(output).toStrictEqual([
@@ -73,31 +73,29 @@ describe('feedback()', () => {
     //Ex 2:
     //To test that output only contains result value 'incorrect'
     //when the guessing is 100% incorrect
-    /*it('does nothing with one string & one empty string', () => {
+    /*it('creates array with correct object parameter values when only incorrect letters', () => {
         const output = feedback('PEAR', 'KIWI');
 
         expect(output).toStrictEqual([
-            {letter: 'F', result: 'correct'}, {letter: 'R', result: 'correct'}, 
-            {letter: 'U', result: 'correct'}, {letter: 'I', result: 'correct'}, 
-            {letter: 'T', result: 'correct'}
+            {letter: 'K', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}, 
+            {letter: 'W', result: 'incorrect'}, {letter: 'I', result: 'incorrect'} 
         ]);
     });*/
 
     //Ex 3:
     //To test that output only contains uppercase letters when mixed input
-    /*it('does nothing with one string & one empty string', () => {
+    /*it('creates array with correct object letters of only Upper Case letters', () => {
         const output = feedback('PeAR', 'kiWi');
 
         expect(output).toStrictEqual([
-            {letter: 'F', result: 'correct'}, {letter: 'R', result: 'correct'}, 
-            {letter: 'U', result: 'correct'}, {letter: 'I', result: 'correct'}, 
-            {letter: 'T', result: 'correct'}
+            {letter: 'K', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}, 
+            {letter: 'W', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}
         ]);
     });*/
 
     //Ex 4:
     //To test correct output for a partly correct guessing 
-    /*it('creates array with correct object parameters & values', () => {
+    /*it('creates array with correct object parameter values when all three values exists', () => {
         const output = feedback('Orange', 'orGans');
 
         expect(output).toStrictEqual([
@@ -109,7 +107,7 @@ describe('feedback()', () => {
     //Ex 5:
     //To test correct output when several equal letters gives both 'correct'
     //& 'missplaced'.  
-    /*it('creates array with correct object parameters & values', () => {
+    /*it('creates array with correct object parameter values when several equal letters', () => {
         const output = feedback('Papaya', 'bannaa');
 
         expect(output).toStrictEqual([
