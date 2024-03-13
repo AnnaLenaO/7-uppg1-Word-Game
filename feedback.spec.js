@@ -84,14 +84,14 @@ describe('feedback()', () => {
 
     //Ex 3:
     //To test that output only contains uppercase letters when mixed input
-    /*it('creates array with correct object letters of only Upper Case letters', () => {
+    it('creates array with correct object letters of only Upper Case letters', () => {
         const output = feedback('PeAR', 'kiWi');
 
         expect(output).toStrictEqual([
             {letter: 'K', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}, 
             {letter: 'W', result: 'incorrect'}, {letter: 'I', result: 'incorrect'}
         ]);
-    });*/
+    });
 
     //Ex 4:
     //To test correct output for a partly correct guessing 

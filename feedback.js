@@ -6,7 +6,7 @@ export default function feedback(correct, guess) {
 
         const obj = {};
         let key1 = "letter";
-        obj[key1] = guess[i];
+        obj[key1] = guess[i].toUpperCase();
         let key2 = "result";
 
         if (correct.includes(guess[i])) {
