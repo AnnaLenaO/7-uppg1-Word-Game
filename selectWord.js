@@ -3,9 +3,10 @@ export default function selectWord(listOfWords, lengthOfWord, repeatLetter) {
     listOfWords.some((element) => typeof element !== 'string') || isNaN(lengthOfWord) || 
     (repeatLetter === null || repeatLetter.trim() === '')) {
         return ('');
-    } else {    
-    const randomIndex = Math.floor(Math.random() * listOfWords.length);
-    const word = listOfWords[randomIndex];
+    } else { 
+        const newList = listOfWords.filter((word) => word.length === lengthOfWord);
+        const randomIndex = Math.floor(Math.random() * newList.length);
+        const word = newList[randomIndex];
 
     return (word);
     }

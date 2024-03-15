@@ -13,16 +13,19 @@ handled in a well defined way. One suggestion is that the function returns
 a randomly selected word & throws an error. 
 
 Ex: listOfWords = ['FRUIT', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA', 
-                    'APPLE', 'LEMON', 'APRICOT']
+                    'APPLE', 'LEMON', 'APRICOT', 'BABACO', 'LIME', 'CAROB', 
+                    'DATES', 'EMBLICA', 'GAMBOGE', 'GENIP', 'GOUMI', 'PLUM',
+                    'HUITO', 'IMBE', 'KAKADU', 'KASTURI', 'MARANG', 'OKRA',
+                    'PRICKLY', 'TANGELO']
 
 Desired length
 Ex 1: listOfWords, 4, 'noRepeat' -> output string toHaveLength(4)
 
 No repeating letters
-Ex 2: listOfWords, 7, 'noRepeat' -> 'APRICOT'
+Ex 2: listOfWords, 6, 'noRepeat' -> 'ORANGE'
 
 Repeating letters 
-EX 3: listOfWords, 6, 'repeat' -> 'BANANA' or 'PAPAYA'
+EX 3: listOfWords, 6, 'repeat' -> 'BANANA' || 'PAPAYA' || 'BABACO' || 'KAKADU' || 'MARANG'
 
 Handling invalid length of word
 Ex 4: listOfWords, 3, 'repeat' -> errorMessage, listOfWord.toContain(output string)
@@ -30,12 +33,18 @@ Ex 4: listOfWords, 3, 'repeat' -> errorMessage, listOfWord.toContain(output stri
 Handling invalid match for repeating letters 
 Ex 5: listOfWords, 7, 'repeat' -> errorMessage, listOfWord.toContain(output string) 
 
-No tests for randomly selected words because it would most likely need
+Randomly selected word
+Ex. 6: listOfWords, 7, 'noRepeat' -> expect(data).not.toMatchInlineSnapshot()
+
+No other tests for randomly selected words because it would most likely need
 statistical measurements beyound Jest tests. 
 */
 
-const listOfWords = ['FRUIT', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA', 
-'APPLE', 'LEMON', 'APRICOT'];
+const listOfWords = ['GRAPE', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA', 
+                        'APPLE', 'LEMON', 'APRICOT', 'BABACO', 'LIME', 'CAROB', 
+                        'DATES', 'EMBLICA', 'GAMBOGE', 'GENIP', 'GOUMI', 'PLUM',
+                        'HUITO', 'IMBE', 'KAKADU', 'KASTURI', 'MARANG', 'OKRA',
+                        'PRICKLY', 'TANGELO'];
 
 describe('selectWord()', () => {
     it('does nothing with an empty array', () => {
@@ -82,25 +91,25 @@ describe('selectWord()', () => {
 
     ///To test that output contains a word from the listOfWords 
     it('returns valid word when called with a list of words', () => {
-        const output = selectWord(listOfWords, 5, 'repeat');
+        const output = selectWord(listOfWords, 5, 'norepeat');
     
         expect(listOfWords).toContain(output);
     });
 
     //Ex 1:
     //To test that output contains a word with desired length
-    /*it('returns valid word with desired length', () => {
+    it('returns valid word with desired length', () => {
         const output = selectWord(listOfWords, 4, 'noRepeat');
 
         expect(output).toHaveLength(4);
-    });*/
+    });
 
     //Ex 2:
     //To test that output contains a word with no repeating letters
     /*it('returns valid word with no repeating letters', () => {
-        const output = selectWord(listOfWords, 7, 'noRepeat');
+        const output = selectWord(listOfWords, 6, 'noRepeat');
 
-        expect(output).toStrictEqual('APRICOT');
+        expect(output).toStrictEqual('ORANGE');
     });*/
 
     //Ex 3:
@@ -108,7 +117,7 @@ describe('selectWord()', () => {
     /*it('returns valid word with repeating letters', () => {
         const output = selectWord(listOfWords, 6, 'repeat');
 
-        expect(output).toMatch(/^.{1}A|^.{3}A|^.{5}A/);
+        expect(output).toMatch(/^.{1}A|^.{3}A/);
     });*/
 
     //Ex 4: 
@@ -123,6 +132,13 @@ describe('selectWord()', () => {
     //throw an error message when the only word with the desired length 
     //does not match the criteria of repeating letters
     /*it('returns valid word & throws error message when repeating letters not match length', () => {
+
+    });*/
+
+    //EX 6:
+    //To test that output in most cases is different from the last 
+    //test run, to indicate working functionality for randomly selected word
+    /*it('returns valid word that in most cases is different from last test run', () => {
 
     });*/
 });
