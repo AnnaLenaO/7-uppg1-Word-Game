@@ -3,7 +3,7 @@ import { describe, expect, it } from '@jest/globals';
 import feedback from './feedback.js';
 
 /*
-Defenition: 
+Definition: 
 A function takes two strings with text as parameters. 
 Evaluates which letters from one string (guess) that exists in the other string (correct)
 & if the index for the letters is the same in both strings. 

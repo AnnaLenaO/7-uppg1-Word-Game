@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710364407729" clover="3.2.0">
-  <project timestamp="1710364407729" name="All files">
-    <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1" elements="22" coveredelements="22" complexity="0" loc="19" ncloc="19" packages="1" files="1" classes="1"/>
+<coverage generated="1710492075521" clover="3.2.0">
+  <project timestamp="1710492075521" name="All files">
+    <metrics statements="28" coveredstatements="28" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2" elements="37" coveredelements="37" complexity="0" loc="28" ncloc="28" packages="1" files="2" classes="2"/>
     <file name="feedback.js" path="C:\ALO\YH Systemutvecklare\VS Code\7. Fullstack\7-uppg1-Word-Game\feedback.js">
-      <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="2" count="3" type="stmt"/>
-      <line num="3" count="3" type="stmt"/>
-      <line num="4" count="3" type="stmt"/>
-      <line num="5" count="3" type="cond" truecount="1" falsecount="0"/>
-      <line num="6" count="5" type="stmt"/>
-      <line num="7" count="5" type="stmt"/>
-      <line num="8" count="5" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
-      <line num="10" count="5" type="stmt"/>
-      <line num="11" count="5" type="stmt"/>
-      <line num="12" count="5" type="stmt"/>
-      <line num="13" count="5" type="stmt"/>
-      <line num="14" count="5" type="stmt"/>
-      <line num="15" count="5" type="stmt"/>
-      <line num="16" count="5" type="stmt"/>
-      <line num="17" count="5" type="stmt"/>
-      <line num="18" count="3" type="stmt"/>
-      <line num="19" count="3" type="stmt"/>
+      <line num="2" count="8" type="stmt"/>
+      <line num="3" count="8" type="stmt"/>
+      <line num="4" count="8" type="stmt"/>
+      <line num="5" count="8" type="stmt"/>
+      <line num="6" count="8" type="stmt"/>
+      <line num="7" count="8" type="cond" truecount="1" falsecount="0"/>
+      <line num="8" count="32" type="stmt"/>
+      <line num="9" count="32" type="stmt"/>
+      <line num="10" count="32" type="stmt"/>
+      <line num="11" count="32" type="stmt"/>
+      <line num="12" count="32" type="stmt"/>
+      <line num="13" count="32" type="stmt"/>
+      <line num="14" count="32" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="12" type="stmt"/>
+      <line num="16" count="32" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="11" type="stmt"/>
+      <line num="18" count="20" type="cond" truecount="1" falsecount="0"/>
+      <line num="19" count="9" type="stmt"/>
+      <line num="20" count="9" type="stmt"/>
+      <line num="21" count="32" type="stmt"/>
+      <line num="22" count="32" type="stmt"/>
+      <line num="23" count="32" type="stmt"/>
+      <line num="24" count="8" type="stmt"/>
+      <line num="25" count="8" type="stmt"/>
+    </file>
+    <file name="selectWord.js" path="C:\ALO\YH Systemutvecklare\VS Code\7. Fullstack\7-uppg1-Word-Game\selectWord.js">
+      <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
