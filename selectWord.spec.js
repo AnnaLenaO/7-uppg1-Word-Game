@@ -38,19 +38,54 @@ const listOfWords = ['FRUIT', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA',
 'APPLE', 'LEMON', 'APRICOT'];
 
 describe('selectWord()', () => {
-    it('does nothing with three empty parameters', () => {
-        const output = selectWord([], undefined, '');
+    it('does nothing with an empty array', () => {
+        const output = selectWord([]);
 
         expect(output).toStrictEqual('');
     });
 
-    ///To test that output contains a word from the listOfWords
-    //when the function is called with three valid parameters 
-    /*it('returns valid word when called with only a list of words', () => {
-        const output = selectWord(listOfWords, 5, 'noRepeat');
+    it('does nothing with an example of invalid array', () => {
+        const output = selectWord('');
 
+        expect(output).toStrictEqual('');
+    });
+
+    it('does nothing with invalid elements in array', () => {
+        const output = selectWord([, , 0, ,]);
+
+        expect(output).toStrictEqual('');
+    });
+
+    it('does nothing with a non valid length parameter', () => {
+        const output = selectWord(listOfWords, '?');
+
+        expect(output).toStrictEqual('');
+    });
+
+    it('does nothing with an empty string for repeat or noRepeat', () => {
+        const output = selectWord(listOfWords, 3, '');
+
+        expect(output).toStrictEqual('');
+    }); 
+
+    it('does nothing with a string with only white space for repeat or noRepeat', () => {
+        const output = selectWord(listOfWords, 3, ' ');
+
+        expect(output).toStrictEqual('');
+    });
+
+    it('does nothing with a string with value null for repeat or noRepeat', () => {
+        const output = selectWord(listOfWords, 3, null);
+
+        expect(output).toStrictEqual('');
+    })
+
+    ///To test that output contains a word from the listOfWords 
+    it('returns valid word when called with a list of words', () => {
+        const output = selectWord(listOfWords, 5, 'repeat');
+    
         expect(listOfWords).toContain(output);
-    });*/
+    });
 
     //Ex 1:
     //To test that output contains a word with desired length
