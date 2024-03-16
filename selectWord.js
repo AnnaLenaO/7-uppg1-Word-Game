@@ -1,70 +1,30 @@
-function noRepeat(listOfWords, lengthOfWord) {
-    const noRepeatList = [];
-    
-    const newList = listOfWords
-    .filter(((word) => word.length === lengthOfWord))
-    .map((word) => word.split('', lengthOfWord))
-    
-    newList.forEach((word) => {
-        if ((word.filter((item, index, array) => array.indexOf(item) === index).length) === word.length) {
-            noRepeatList.push(word.join(''));
+function getWordList(listOfWords, lengthOfWord, repeat) {
+
+    const filteredWords = listOfWords.filter((word) => word.length === lengthOfWord);
+    const wordList = [];
+
+    filteredWords.forEach(word => {
+        const uniqueChars = new Set(word);
+        if ((repeat && uniqueChars.size < word.length) || (!repeat && uniqueChars.size === word.length)) {
+            wordList.push(word);
         }
     });
 
-    if(noRepeatList.length === 0) {
-        const randomIndex = Math.floor(Math.random() * listOfWords.length);
-        const correctWord = listOfWords[randomIndex];
-        return correctWord;
-
-    } else {
-        const randomIndex = Math.floor(Math.random() * noRepeatList.length);
-        const correctWord = noRepeatList[randomIndex];
-        return correctWord;
-    }
+    return wordList.length ? wordList : [listOfWords[Math.floor(Math.random() * listOfWords.length)]];
 }
-
-function repeat(listOfWords, lengthOfWord) {
-    const repeatList = [];
-    
-    const newList = listOfWords
-    .filter(((word) => word.length === lengthOfWord))
-    .map((word) => word.split('', lengthOfWord))
-    
-    newList.forEach((word) => {
-        if ((word.filter((item, index, array) => array.indexOf(item) === index).length) < word.length) {
-            repeatList.push(word.join(''));
-        }
-    });
-
-    if(repeatList.length === 0) {
-        const randomIndex = Math.floor(Math.random() * listOfWords.length);
-        const correctWord = listOfWords[randomIndex];
-        return correctWord;
-
-    } else {
-        const randomIndex = Math.floor(Math.random() * repeatList.length);
-        const correctWord = repeatList[randomIndex];
-        return correctWord;
-    }
-}
-
 
 export default function selectWord(listOfWords, lengthOfWord, repeatLetter) {
 
-    if (!Array.isArray(listOfWords) || Array.isArray(listOfWords) && listOfWords.length === 0 || 
-    listOfWords.some((element) => typeof element !== 'string') || isNaN(lengthOfWord) || 
-    (repeatLetter === null || repeatLetter.trim() === '')) {
+    if (!Array.isArray(listOfWords) || !listOfWords.length || listOfWords.some((word) => typeof word !== 'string') || 
+        isNaN(lengthOfWord) || repeatLetter === null || !repeatLetter.trim()) {
         return ('');
-
-    } else if ((listOfWords.filter((word) => word.length === lengthOfWord)).length === 0) { 
-        const randomIndex = Math.floor(Math.random() * listOfWords.length);
-        const correctWord = listOfWords[randomIndex];
-        return correctWord;
-
-    } else if (repeatLetter === 'noRepeat') {
-        return noRepeat(listOfWords, lengthOfWord);
-
-    } else if (repeatLetter === 'repeat') {
-        return repeat(listOfWords, lengthOfWord);
     }
+
+    if (!listOfWords.some(word => word.length === lengthOfWord)) {
+        return listOfWords[Math.floor(Math.random() * listOfWords.length)];
+    }
+
+    const repeat = repeatLetter.trim() === 'repeat';
+    const wordList = getWordList(listOfWords, lengthOfWord, repeat);
+    return wordList[Math.floor(Math.random() * wordList.length)];
 }

@@ -2,24 +2,15 @@ export default function feedback(correctWord, guessWord) {
     const correct = correctWord.toUpperCase();
     const guess = guessWord.toUpperCase();
 
-    const feedback = [];
-
-    for (let i = 0; i < guess.length; i++) {
-
-        const obj = {};
-        let key1 = "letter";
-        obj[key1] = guess[i];
-        let key2 = "result";
-
-        if (!correct.includes(guess[i])) {
-            obj[key2] = "incorrect";
-        } else if (correct[i] === guess[i]) {
-            obj[key2] = "correct";
+    const feedback = guess.split('').map((letter, index) => {
+        if (!correct.includes(letter)) {
+            return { letter, result: "incorrect" };
+        } else if (correct[index] === letter) {
+            return { letter, result: "correct" };
         } else {
-            obj[key2] = "misplaced";
+            return { letter, result: "misplaced" };
         }
+    });
 
-        feedback.push(obj);
-    }
-return feedback;
+    return feedback;
 }
