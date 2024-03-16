@@ -91,7 +91,7 @@ describe('selectWord()', () => {
 
     ///To test that output contains a word from the listOfWords 
     it('returns valid word when called with a list of words', () => {
-        const output = selectWord(listOfWords, 5, 'norepeat');
+        const output = selectWord(listOfWords, 5, 'noRepeat');
     
         expect(listOfWords).toContain(output);
     });
@@ -106,11 +106,11 @@ describe('selectWord()', () => {
 
     //Ex 2:
     //To test that output contains a word with no repeating letters
-    /*it('returns valid word with no repeating letters', () => {
+    it('returns valid word with no repeating letters', () => {
         const output = selectWord(listOfWords, 6, 'noRepeat');
 
         expect(output).toStrictEqual('ORANGE');
-    });*/
+    });
 
     //Ex 3:
     //To test that output contains a word with repeating letters
