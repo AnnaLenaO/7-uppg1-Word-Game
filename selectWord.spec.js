@@ -114,11 +114,11 @@ describe('selectWord()', () => {
 
     //Ex 3:
     //To test that output contains a word with repeating letters
-    /*it('returns valid word with repeating letters', () => {
+    it('returns valid word with repeating letters', () => {
         const output = selectWord(listOfWords, 6, 'repeat');
 
         expect(output).toMatch(/^.{1}A|^.{3}A/);
-    });*/
+    });
 
     //Ex 4: 
     //To test that output contains a word &   
