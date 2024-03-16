@@ -42,7 +42,7 @@ Handling invalid match for no repeating letters
 Ex 6: listOfWords, 8, 'noReepeat' -> listOfWord.toContain(output string)
 
 Randomly selected word
-Ex. 7: listOfWords, 7, 'noRepeat' -> expect(data).not.toMatchInlineSnapshot()
+Ex. 7: listOfWords, 7, 'noRepeat' -> expect(data).toMatchInlineSnapshot() to FAIL TEST!
 
 No other tests for randomly selected words because it would most likely need
 statistical measurements beyound Jest tests. 
@@ -160,7 +160,9 @@ describe('selectWord()', () => {
     //EX 7:
     //To test that output in most cases is different from the last 
     //test run, to indicate working functionality for randomly selected word
-    /*it('returns valid word that in most cases is different from last test run', () => {
+    it('returns a valid randomly selected word to NOT match InlineSnapshot & TEST SHALL FAIL!', () => {
+        const output = selectWord(listOfWords, 7, 'noRepeat');
 
-    });*/
+        expect(output).toMatchInlineSnapshot(`"TANGELO"`);
+    });
 });
