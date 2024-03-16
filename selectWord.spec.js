@@ -41,8 +41,8 @@ Ex 5: listOfWords, 4, 'repeat' -> listOfWord.toContain(output string)
 Handling invalid match for no repeating letters 
 Ex 6: listOfWords, 8, 'noReepeat' -> listOfWord.toContain(output string)
 
-Randomly selected word
-Ex. 7: listOfWords, 7, 'noRepeat' -> expect(data).toMatchInlineSnapshot() to FAIL TEST!
+Randomly selected word, listofWord körs 5 ggr
+Ex. 7: listOfWords, 7, 'noRepeat' -> [output2, output3, output4, output5].some(output => output !== output1)
 
 No other tests for randomly selected words because it would most likely need
 statistical measurements beyound Jest tests. 
@@ -55,47 +55,21 @@ const listOfWords = ['GRAPE', 'BANANA', 'ORANGE', 'TANGELO', 'PEAR', 'PAPAYA',
                         'PRICKLY', 'MULBERRY', 'BEECHNUT', 'CALABASH'];
 
 describe('selectWord()', () => {
-    it('does nothing with an empty array', () => {
-        const output = selectWord([]);
 
+    const invalidInputs = [
+        { input: [] },
+        { input: '' },
+        { input: [, , 0, ,] },
+        { input: [listOfWords, '?'] },
+        { input: [listOfWords, 3, ''] },
+        { input: [listOfWords, 3, ' '] },
+        { input: [listOfWords, 3, null] }
+    ];
+
+    it.each(invalidInputs)('returns an empty string when invalid input: %p', ({ input }) => {
+        const output = selectWord(...input);
         expect(output).toStrictEqual('');
     });
-
-    it('does nothing with an example of invalid array', () => {
-        const output = selectWord('');
-
-        expect(output).toStrictEqual('');
-    });
-
-    it('does nothing with invalid elements in array', () => {
-        const output = selectWord([, , 0, ,]);
-
-        expect(output).toStrictEqual('');
-    });
-
-    it('does nothing with a non valid length parameter', () => {
-        const output = selectWord(listOfWords, '?');
-
-        expect(output).toStrictEqual('');
-    });
-
-    it('does nothing with an empty string for repeat or noRepeat', () => {
-        const output = selectWord(listOfWords, 3, '');
-
-        expect(output).toStrictEqual('');
-    }); 
-
-    it('does nothing with a string with only white space for repeat or noRepeat', () => {
-        const output = selectWord(listOfWords, 3, ' ');
-
-        expect(output).toStrictEqual('');
-    });
-
-    it('does nothing with a string with value null for repeat or noRepeat', () => {
-        const output = selectWord(listOfWords, 3, null);
-
-        expect(output).toStrictEqual('');
-    })
 
     ///To test that output contains a word from the listOfWords 
     it('returns valid word when called with a list of words', () => {
@@ -131,7 +105,7 @@ describe('selectWord()', () => {
     //Ex 4: 
     //To test that output contains a word &   
     //throw an error message when no word with the desired length exists
-    it('returns valid word & throws error message when no word with desired length', () => {
+    it('returns valid word when no word with desired length', () => {
         const output = selectWord(listOfWords, 10, 'repeat');
         
         expect(listOfWords).toContain(output);
@@ -141,7 +115,7 @@ describe('selectWord()', () => {
     //To test that output contains a word when the only word with the desired length 
     //does not match the criteria of repeating letters. The game shall return a suggested
     //word when no word match the desired criterias. 
-    it('returns valid word & throws error message when noRepeating letters not match length', () => {
+    it('returns valid word when repeating letters not match length', () => {
         const output = selectWord(listOfWords, 4, 'repeat');
         
         expect(listOfWords).toContain(output);
@@ -151,7 +125,7 @@ describe('selectWord()', () => {
     //To test that output contains a word when the only word with the desired length 
     //does not match the criteria of noRepeating letters. The game shall return a suggested
     //word when no word match the desired criterias.
-    it('returns valid word & throws error message when noRepeating letters not match length', () => {
+    it('returns valid word when noRepeating letters not match length', () => {
         const output = selectWord(listOfWords, 8, 'noRepeat');
         
         expect(listOfWords).toContain(output);
@@ -160,9 +134,15 @@ describe('selectWord()', () => {
     //EX 7:
     //To test that output in most cases is different from the last 
     //test run, to indicate working functionality for randomly selected word
-    it('returns a valid randomly selected word to NOT match InlineSnapshot & TEST SHALL FAIL!', () => {
-        const output = selectWord(listOfWords, 7, 'noRepeat');
+    it('returns valid word when noRepeating letters not match length', () => {
+        const output1 = selectWord(listOfWords, 7, 'noRepeat');
+        const output2 = selectWord(listOfWords, 7, 'noRepeat');
+        const output3 = selectWord(listOfWords, 7, 'noRepeat');
+        const output4 = selectWord(listOfWords, 7, 'noRepeat');
+        const output5 = selectWord(listOfWords, 7, 'noRepeat');
 
-        expect(output).toMatchInlineSnapshot(`"TANGELO"`);
+        const isNotEqual = [output2, output3, output4, output5].some(output => output !== output1);
+        
+        expect(isNotEqual).toBe(true);
     });
 });
