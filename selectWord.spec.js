@@ -12,11 +12,16 @@ If no word exists that meets the chosen criterias the situation shall be
 handled in a well defined way. One suggestion is that the function returns
 a randomly selected word & throws an error. 
 
-Ex: listOfWords = ['FRUIT', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA', 
+Ex: listOfWords = ['FRUIT', 'BANANA', 'ORANGE', 'TANGELO', 'PEAR', 'PAPAYA', 
                     'APPLE', 'LEMON', 'APRICOT', 'BABACO', 'LIME', 'CAROB', 
                     'DATES', 'EMBLICA', 'GAMBOGE', 'GENIP', 'GOUMI', 'PLUM',
                     'HUITO', 'IMBE', 'KAKADU', 'KASTURI', 'MARANG', 'OKRA',
-                    'PRICKLY', 'TANGELO']
+                    'PRICKLY', 'MULBERRY', 'BEECHNUT', 'CALABASH']
+
+4 - 8 letters
+Only one word with 6 letters & no repeating letters
+No words with 4, 7 letters & repeating letters.
+No words with 8 letters & no repeating letters. 
 
 Desired length
 Ex 1: listOfWords, 4, 'noRepeat' -> output string toHaveLength(4)
@@ -28,23 +33,26 @@ Repeating letters
 EX 3: listOfWords, 6, 'repeat' -> 'BANANA' || 'PAPAYA' || 'BABACO' || 'KAKADU' || 'MARANG'
 
 Handling invalid length of word
-Ex 4: listOfWords, 3, 'repeat' -> errorMessage, listOfWord.toContain(output string)
+Ex 4: listOfWords, 10, 'repeat' -> errorMessage, listOfWord.toContain(output string)
 
 Handling invalid match for repeating letters 
-Ex 5: listOfWords, 7, 'repeat' -> errorMessage, listOfWord.toContain(output string) 
+Ex 5: listOfWords, 4, 'repeat' -> listOfWord.toContain(output string)
+
+Handling invalid match for no repeating letters 
+Ex 6: listOfWords, 8, 'noReepeat' -> listOfWord.toContain(output string)
 
 Randomly selected word
-Ex. 6: listOfWords, 7, 'noRepeat' -> expect(data).not.toMatchInlineSnapshot()
+Ex. 7: listOfWords, 7, 'noRepeat' -> expect(data).not.toMatchInlineSnapshot()
 
 No other tests for randomly selected words because it would most likely need
 statistical measurements beyound Jest tests. 
 */
 
-const listOfWords = ['GRAPE', 'BANANA', 'ORANGE', 'KIWI', 'PEAR', 'PAPAYA', 
+const listOfWords = ['GRAPE', 'BANANA', 'ORANGE', 'TANGELO', 'PEAR', 'PAPAYA', 
                         'APPLE', 'LEMON', 'APRICOT', 'BABACO', 'LIME', 'CAROB', 
                         'DATES', 'EMBLICA', 'GAMBOGE', 'GENIP', 'GOUMI', 'PLUM',
                         'HUITO', 'IMBE', 'KAKADU', 'KASTURI', 'MARANG', 'OKRA',
-                        'PRICKLY', 'TANGELO'];
+                        'PRICKLY', 'MULBERRY', 'BEECHNUT', 'CALABASH'];
 
 describe('selectWord()', () => {
     it('does nothing with an empty array', () => {
@@ -123,19 +131,33 @@ describe('selectWord()', () => {
     //Ex 4: 
     //To test that output contains a word &   
     //throw an error message when no word with the desired length exists
-    /*it('returns valid word & throws error message when no word with desired length', () => {
+    it('returns valid word & throws error message when no word with desired length', () => {
+        const output = selectWord(listOfWords, 10, 'repeat');
         
-    });*/
+        expect(listOfWords).toContain(output);
+    });
 
     //Ex 5: 
-    //To test that output contains a word & 
-    //throw an error message when the only word with the desired length 
-    //does not match the criteria of repeating letters
-    /*it('returns valid word & throws error message when repeating letters not match length', () => {
+    //To test that output contains a word when the only word with the desired length 
+    //does not match the criteria of repeating letters. The game shall return a suggested
+    //word when no word match the desired criterias. 
+    it('returns valid word & throws error message when noRepeating letters not match length', () => {
+        const output = selectWord(listOfWords, 4, 'repeat');
+        
+        expect(listOfWords).toContain(output);
+    });
 
-    });*/
+    //Ex 6: 
+    //To test that output contains a word when the only word with the desired length 
+    //does not match the criteria of noRepeating letters. The game shall return a suggested
+    //word when no word match the desired criterias.
+    it('returns valid word & throws error message when noRepeating letters not match length', () => {
+        const output = selectWord(listOfWords, 8, 'noRepeat');
+        
+        expect(listOfWords).toContain(output);
+    });
 
-    //EX 6:
+    //EX 7:
     //To test that output in most cases is different from the last 
     //test run, to indicate working functionality for randomly selected word
     /*it('returns valid word that in most cases is different from last test run', () => {
