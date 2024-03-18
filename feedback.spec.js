@@ -47,6 +47,14 @@ Ex 6: 'Papayas', 'apppaaa' -> [
     {letter: 'A', result: 'misplaced'}, {letter: 'A', result: 'correct'},
     {letter: 'A', result: 'incorrect'}
     ]
+
+//To test input "HALLÅ" against the correct word "CYKLA"
+//specified in the description for the "B7, 1: Tested Wordle-algoritm"
+"CYKLA", "HALLÅ" -> [
+    {letter: 'H', result: 'incorrect'}, {letter: 'A', result: 'misplaced'}, 
+    {letter: 'L', result: 'incorrect'}, {letter: 'L', result: 'correct'}, 
+    {letter: 'Å', result: 'incorrect'}
+    ]
 */
 
 describe('feedback()', () => {
@@ -125,6 +133,7 @@ describe('feedback()', () => {
         ]);
     });
 
+    //Ex 6:
     //To test correct output 'incorrect' when two many letters of a kind, 
     //instead of output 'misplaced' for the extra letter of that kind.
     it('creates array with correct object parameter values when too many equal letters', () => {
@@ -135,6 +144,18 @@ describe('feedback()', () => {
             {letter: 'P', result: 'correct'}, {letter: 'P', result: 'incorrect'}, 
             {letter: 'A', result: 'misplaced'}, {letter: 'A', result: 'correct'},
             {letter: 'A', result: 'incorrect'}
+        ]);
+    });
+
+    //To test input "HALLÅ" against the correct word "CYKLA"
+    //specified in the description for the "B7, 1: Tested Wordle-algoritm"
+    it('creates array with correct object parameter when guessing = "HALLÅ", correct word = "CYKLA"', () => {
+        const output = feedback('CYKLA', 'HALLÅ');
+
+        expect(output).toStrictEqual([
+            {letter: 'H', result: 'incorrect'}, {letter: 'A', result: 'misplaced'}, 
+            {letter: 'L', result: 'incorrect'}, {letter: 'L', result: 'correct'}, 
+            {letter: 'Å', result: 'incorrect'}
         ]);
     });
 });
