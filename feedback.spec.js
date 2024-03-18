@@ -40,6 +40,13 @@ Ex 5: 'Papaya', 'bannaa' -> [
     {letter: 'N', result: 'incorrect'}, {letter: 'A', result: 'correct'}, 
     {letter: 'N', result: 'missplaced'}, {letter: 'A', result: 'correct'}
     ] 
+
+Ex 6: 'Papayas', 'apppaaa' -> [
+    {letter: 'A', result: 'misplaced'}, {letter: 'P', result: 'misplaced'}, 
+    {letter: 'P', result: 'correct'}, {letter: 'P', result: 'incorrect'}, 
+    {letter: 'A', result: 'misplaced'}, {letter: 'A', result: 'correct'},
+    {letter: 'A', result: 'incorrect'}
+    ]
 */
 
 describe('feedback()', () => {
@@ -118,17 +125,16 @@ describe('feedback()', () => {
         ]);
     });
 
-    //To test correct output 'missplaced' when two many letters of a kind, 
-    //instead of output 'incorrect' for the extra letter of that kind.
-    //To ensure the game is not too easy.  
-    it('creates array with correct object parameter values when several equal letters', () => {
+    //To test correct output 'incorrect' when two many letters of a kind, 
+    //instead of output 'misplaced' for the extra letter of that kind.
+    it('creates array with correct object parameter values when too many equal letters', () => {
         const output = feedback('Papayas', 'apppaaa');
 
         expect(output).toStrictEqual([
             {letter: 'A', result: 'misplaced'}, {letter: 'P', result: 'misplaced'}, 
-            {letter: 'P', result: 'correct'}, {letter: 'P', result: 'misplaced'}, 
+            {letter: 'P', result: 'correct'}, {letter: 'P', result: 'incorrect'}, 
             {letter: 'A', result: 'misplaced'}, {letter: 'A', result: 'correct'},
-            {letter: 'A', result: 'misplaced'}
+            {letter: 'A', result: 'incorrect'}
         ]);
     });
 });
